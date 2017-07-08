@@ -13,6 +13,7 @@ public class Order{
 public struct OrderRecipe{
     public string name; //Burger 
     public List<OrderIngredient> requiredIngredients; //Bun, Patty, Lettuce, Tomato
+    public float price;
     public List<string> variance; 
 }
 

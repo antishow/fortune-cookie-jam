@@ -11,10 +11,13 @@ public enum HungerLevel{
 //This goes on each party member so that if you interact with one of them, you can find the order from any party member, the partyID should be the same across all party members
 public class PartyMember : MonoBehaviour{
     public int partyID; 
+    public Party parentParty; 
+    public int IDInParty; 
     public HungerLevel hunger;
 
     //Meal status'
     public bool seated;
+    public float seatedWaitTime;
     public float decideTime;
     public bool decided; //has this person decided yet?
     public float orderWaitTime;
@@ -24,7 +27,10 @@ public class PartyMember : MonoBehaviour{
     public float eatingTime;
     public bool eating;
     public bool finished;
-    public bool checkDelivered;
+    public bool leaving;
+    // public bool checkDelivered;
+    // public float checkDeliveredWaitTime;
+    public List<OrderRecipe> partyMemeberOrder;
 
     public void Start(){
         //Randomly choose how hungry the person is
@@ -40,13 +46,16 @@ public class PartyMember : MonoBehaviour{
         //it will take the person 20-40 seconds to decide on what they want.
         decideTime = Random.Range(Preferences.partyMemberMinDecideTime, Preferences.partyMemberMaxDecideTime);
         eatingTime = Random.Range(Preferences.partyMemberMinEatTime, Preferences.partyMemberMaxEatTime);
+        GetOrder();
     }
 
     public void Update(){
         //They only start deciding once seated
         if(!seated){
             //Wait to be seated
+            seatedWaitTime += Time.deltaTime;
         } else if(!decided){
+            //Deciding
             if(decideTime < 0){
                 decided = true;
             } else {
@@ -59,18 +68,26 @@ public class PartyMember : MonoBehaviour{
             //Wait to have food delivered
             foodWaitTime += Time.deltaTime;
         } else if(!finished){
+            //Eating
             if(eatingTime < 0){
                 finished = true;
             } else {
                 eatingTime -= Time.deltaTime;
             }
-        } else if(!checkDelivered){
+        } else {
             //Make them dissapear or something.
+            if(IDInParty == 0){
+                //Only do this on the party leader
+                parentParty.CheckFinished();
+            }
             //Possibly do some scoring here or something
         }
     }
 
     public List<OrderRecipe> GetOrder(){
+        if(partyMemeberOrder != null && partyMemeberOrder.Count != 0){
+            return partyMemeberOrder;
+        }
         int itemsOrdered = 0;
         switch(hunger){
             case HungerLevel.FULL:
@@ -87,6 +104,7 @@ public class PartyMember : MonoBehaviour{
         for (int i = 0; i < itemsOrdered; i++){
             personOrder.Add(RecipeGenerator.CreateOrderFromMenuItem(RecipeBook.GetRandomRecipe()));
         }
+        partyMemeberOrder = personOrder;
         return personOrder;
     }
 
