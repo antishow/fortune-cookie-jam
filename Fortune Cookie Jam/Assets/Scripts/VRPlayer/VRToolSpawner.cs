@@ -49,7 +49,9 @@ public class VRToolSpawner : MonoBehaviour
             {
                 if (handSpawner && parentHand.Inputs[NVRButtons.Trigger].PressDown && growing == false)
                 {
-                    currentPrefab.AddComponent<Rigidbody>();
+                    Rigidbody rb = currentPrefab.GetComponent<Rigidbody>();
+                    rb.isKinematic = false;
+                    rb.useGravity = true;
                     currentPrefab.AddComponent<NVRInteractableItem>();
                     currentPrefab.transform.parent = null;
                     currentPrefab = null;

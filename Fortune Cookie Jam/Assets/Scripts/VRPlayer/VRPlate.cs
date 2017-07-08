@@ -4,14 +4,5 @@ using UnityEngine;
 
 public class VRPlate : MonoBehaviour
 {
-
-    void Start()
-    {
-
-    }
-
-    void Update()
-    {
-
-    }
+     
 }
