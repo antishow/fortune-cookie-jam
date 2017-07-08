@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class OrderGenerator : MonoBehaviour
 {
+    const float PARTY_SPAWN_PERIOD = 300.0f;
+    const float PARTY_SPAWN_PERIOD_DECAY_RATE = 0.95f;
+    const float MIN_PARTY_SPAWN_PERIOD = 120.0f;
+    private float _spawnPeriod = PARTY_SPAWN_PERIOD;
+
+
+
     public static OrderGenerator instance;
     public GameObject partyPrefab;
     public GameObject partyMemberPrefab;
@@ -15,16 +22,27 @@ public class OrderGenerator : MonoBehaviour
             Destroy(this.gameObject);
         } else {
             OrderGenerator.instance = this;
+            _spawnPeriod = PARTY_SPAWN_PERIOD;
             CreateParty();
+            CreateParty();
+            CreateParty();
+            Invoke("OnSpawnPeriodComplete", _spawnPeriod);
         }
     }
 
+    public void OnSpawnPeriodComplete(){
+        CreateParty();
+        _spawnPeriod *= Mathf.Max(MIN_PARTY_SPAWN_PERIOD, _spawnPeriod * PARTY_SPAWN_PERIOD_DECAY_RATE);
+            Invoke("OnSpawnPeriodComplete", _spawnPeriod);
+    }
+
+
     public void Update(){
-        foreach(Party p in partyOrders){
-            if(p.partyFinished){
-                
-            }
-        }
+        // foreach(Party p in partyOrders){
+        //     if(p.partyFinished){
+
+        //     }
+        // }
     }
 
     public void CreateParty(){
