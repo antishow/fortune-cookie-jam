@@ -72,6 +72,8 @@ namespace NewtonVR
 
         private GameObject RenderModel;
 
+        private VRPlayerHands vrPlayerHands;
+
         public bool IsHovering
         {
             get
@@ -306,7 +308,7 @@ namespace NewtonVR
 
                 if (HoldButtonDown == true)
                 {
-                    if (CurrentlyInteracting == null)
+                    if (CurrentlyInteracting == null && vrPlayerHands.OnGrabber)
                     {
                         PickupClosest();
                     }
@@ -362,7 +364,7 @@ namespace NewtonVR
             {
                 if (CurrentInteractionStyle == InterationStyle.Hold)
                 {
-                    if (HoldButtonPressed == true && IsInteracting == false)
+                    if (HoldButtonPressed == true && IsInteracting == false && vrPlayerHands.OnGrabber)
                     {
                         if (CurrentHandState != HandState.GripDownNotInteracting && VisibilityLocked == false)
                         {
@@ -371,7 +373,7 @@ namespace NewtonVR
                             CurrentHandState = HandState.GripDownNotInteracting;
                         }
                     }
-                    else if (HoldButtonDown == true && IsInteracting == true)
+                    else if (HoldButtonDown == true && IsInteracting == true && vrPlayerHands.OnGrabber)
                     {
                         if (CurrentHandState != HandState.GripDownInteracting && VisibilityLocked == false)
                         {
@@ -694,7 +696,7 @@ namespace NewtonVR
                 {
                     if (PhysicalController != null)
                     {
-                        PhysicalController.Off();
+                        PhysicalController.On();
                     }
 
                     if (Player.AutomaticallySetControllerTransparency == true)
@@ -702,6 +704,11 @@ namespace NewtonVR
                         for (int index = 0; index < GhostRenderers.Length; index++)
                         {
                             GhostRenderers[index].enabled = false;
+                        }
+
+                        for (int index = 0; index < GhostColliders.Length; index++)
+                        {
+                            GhostColliders[index].enabled = false;
                         }
                     }
                 }
@@ -762,6 +769,8 @@ namespace NewtonVR
             {
                 RenderModel = GameObject.Instantiate(CustomModel);
 
+                vrPlayerHands = RenderModel.GetComponent<VRPlayerHands>();
+
                 RenderModel.transform.parent = this.transform;
                 RenderModel.transform.localScale = RenderModel.transform.localScale;
                 RenderModel.transform.localPosition = Vector3.zero;
@@ -777,6 +786,7 @@ namespace NewtonVR
             Rigidbody.isKinematic = true;
             Rigidbody.maxAngularVelocity = float.MaxValue;
             Rigidbody.useGravity = false;
+            Rigidbody.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
 
             Collider[] colliders = null;
 
@@ -804,7 +814,7 @@ namespace NewtonVR
                 if (Player.AutomaticallySetControllerTransparency == true)
                 {
                     Color transparentcolor = Color.white;
-                    transparentcolor.a = (float)VisibilityLevel.Ghost / 100f;
+                    transparentcolor.a = 1;//(float)VisibilityLevel.Ghost / 100f;
 
                     GhostRenderers = this.GetComponentsInChildren<Renderer>();
                     for (int rendererIndex = 0; rendererIndex < GhostRenderers.Length; rendererIndex++)
