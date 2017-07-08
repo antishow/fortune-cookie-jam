@@ -1,0 +1,251 @@
+fileFormatVersion: 2
+guid: 7d93d674659e5af4d8a7383cc7751e41
+timeCreated: 1499550699
+licenseType: Free
+SketchUpImporter:
+  generateBackFace: 0
+  mergeCoplanarFaces: 0
+  selectedNodes: 000000000100000002000000030000000400000005000000060000000700000008000000090000000a0000000b0000000c0000000d0000000e0000000f000000100000001100000012000000130000001400000015000000160000001700000018000000190000001a0000001b0000001c0000001d0000001e0000001f000000200000002100000022000000230000002400000025000000260000002700000028000000290000002a0000002b0000002c0000002d0000002e0000002f000000300000003100000032000000330000003400000035000000360000003700000038000000390000003a0000003b0000003c0000003d0000003e0000003f00000040000000410000004200000043000000440000004500000046000000470000004800000049000000
+  assetHash:
+    serializedVersion: 2
+    Hash: 5f6b06a8c6ba8eb87abf7d4816c9331e
+  longitude: -105.242139
+  latitude: 40.018309
+  northCorrection: -0
+  fileUnit: 0
+  sketchUpImportData:
+    defaultCamera:
+      position: {x: 1.3297373, y: 2.2177727, z: -0.47885472}
+      lookAt: {x: -1.8066027, y: 1.365994, z: 3.9404435}
+      up: {x: -0.08986557, y: 0.98787147, z: 0.12662618}
+      fov: 35
+      aspectRatio: 0
+      orthoSize: 1
+      isPerspective: 1
+    scenes: []
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Chair
+    100002: Chair 1
+    100004: Chair 10
+    100006: Chair 11
+    100008: Chair 12
+    100010: Chair 13
+    100012: Chair 14
+    100014: Chair 15
+    100016: Chair 16
+    100018: Chair 17
+    100020: Chair 18
+    100022: Chair 19
+    100024: Chair 2
+    100026: Chair 20
+    100028: Chair 21
+    100030: Chair 22
+    100032: Chair 23
+    100034: Chair 24
+    100036: Chair 25
+    100038: Chair 3
+    100040: Chair 4
+    100042: Chair 5
+    100044: Chair 6
+    100046: Chair 7
+    100048: Chair 8
+    100050: Chair 9
+    100052: Cook and Serve
+    100054: //RootNode
+    100056: FreezerHinge
+    100058: SmallTable
+    100060: SmallTable 1
+    100062: SmallTable 2
+    100064: Table
+    100066: Table 1
+    100068: Table 2
+    100070: Table 3
+    100072: Table 4
+    400000: Chair
+    400002: Chair 1
+    400004: Chair 10
+    400006: Chair 11
+    400008: Chair 12
+    400010: Chair 13
+    400012: Chair 14
+    400014: Chair 15
+    400016: Chair 16
+    400018: Chair 17
+    400020: Chair 18
+    400022: Chair 19
+    400024: Chair 2
+    400026: Chair 20
+    400028: Chair 21
+    400030: Chair 22
+    400032: Chair 23
+    400034: Chair 24
+    400036: Chair 25
+    400038: Chair 3
+    400040: Chair 4
+    400042: Chair 5
+    400044: Chair 6
+    400046: Chair 7
+    400048: Chair 8
+    400050: Chair 9
+    400052: Cook and Serve
+    400054: //RootNode
+    400056: FreezerHinge
+    400058: SmallTable
+    400060: SmallTable 1
+    400062: SmallTable 2
+    400064: Table
+    400066: Table 1
+    400068: Table 2
+    400070: Table 3
+    400072: Table 4
+    2300000: Chair
+    2300002: Chair 1
+    2300004: Chair 10
+    2300006: Chair 11
+    2300008: Chair 12
+    2300010: Chair 13
+    2300012: Chair 14
+    2300014: Chair 15
+    2300016: Chair 16
+    2300018: Chair 17
+    2300020: Chair 18
+    2300022: Chair 19
+    2300024: Chair 2
+    2300026: Chair 20
+    2300028: Chair 21
+    2300030: Chair 22
+    2300032: Chair 23
+    2300034: Chair 24
+    2300036: Chair 25
+    2300038: Chair 3
+    2300040: Chair 4
+    2300042: Chair 5
+    2300044: Chair 6
+    2300046: Chair 7
+    2300048: Chair 8
+    2300050: Chair 9
+    2300052: Cook and Serve
+    2300054: //RootNode
+    2300056: FreezerHinge
+    2300058: SmallTable
+    2300060: SmallTable 1
+    2300062: SmallTable 2
+    2300064: Table
+    2300066: Table 1
+    2300068: Table 2
+    2300070: Table 3
+    2300072: Table 4
+    3300000: Chair
+    3300002: Chair 1
+    3300004: Chair 10
+    3300006: Chair 11
+    3300008: Chair 12
+    3300010: Chair 13
+    3300012: Chair 14
+    3300014: Chair 15
+    3300016: Chair 16
+    3300018: Chair 17
+    3300020: Chair 18
+    3300022: Chair 19
+    3300024: Chair 2
+    3300026: Chair 20
+    3300028: Chair 21
+    3300030: Chair 22
+    3300032: Chair 23
+    3300034: Chair 24
+    3300036: Chair 25
+    3300038: Chair 3
+    3300040: Chair 4
+    3300042: Chair 5
+    3300044: Chair 6
+    3300046: Chair 7
+    3300048: Chair 8
+    3300050: Chair 9
+    3300052: Cook and Serve
+    3300054: //RootNode
+    3300056: FreezerHinge
+    3300058: SmallTable
+    3300060: SmallTable 1
+    3300062: SmallTable 2
+    3300064: Table
+    3300066: Table 1
+    3300068: Table 2
+    3300070: Table 3
+    3300072: Table 4
+    4300000: Mesh DinerInterior
+    4300002: Mesh FreezerHinge
+    4300004: Mesh Chair
+    4300006: Mesh Table
+    4300008: Mesh SmallTable
+    4300010: Mesh Cook and Serve
+  materials:
+    importMaterials: 1
+    materialName: 2
+    materialSearch: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 0.0254
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 0
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

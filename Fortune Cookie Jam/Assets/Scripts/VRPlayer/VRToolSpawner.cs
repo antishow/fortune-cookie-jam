@@ -21,7 +21,7 @@ public class VRToolSpawner : MonoBehaviour
 
     private void OnEnable()
     {
-        if(currentPrefab != null && growing)
+        if (currentPrefab != null && growing)
         {
             StartCoroutine(GrowObject());
         }
@@ -35,12 +35,25 @@ public class VRToolSpawner : MonoBehaviour
         }
         else
         {
-            if (currentPrefab == null || (currentPrefab.transform.position - transform.position).sqrMagnitude > .75f)
+            if (currentPrefab == null)
             {
                 currentPrefab = Instantiate(spawningPrefab, transform.position, transform.rotation);
                 currentPrefab.transform.parent = transform;
+                goalSize = spawningPrefab.transform.localScale;
 
-                goalSize = currentPrefab.transform.localScale;
+                currentPrefab.transform.localScale = Vector3.zero;
+
+                StartCoroutine(GrowObject());
+            }
+            else if ((currentPrefab.transform.position - transform.position).sqrMagnitude > .5f)
+            {
+                currentPrefab.transform.parent = null;
+                currentIntItem = null;
+
+                currentPrefab = Instantiate(spawningPrefab, transform.position, transform.rotation);
+                currentPrefab.transform.parent = transform;
+                goalSize = spawningPrefab.transform.localScale;
+
                 currentPrefab.transform.localScale = Vector3.zero;
 
                 StartCoroutine(GrowObject());
@@ -56,17 +69,20 @@ public class VRToolSpawner : MonoBehaviour
                     currentPrefab.transform.parent = null;
                     currentPrefab = null;
                 }
-                else if(!handSpawner)
+                else if (!handSpawner)
                 {
-                    if(currentIntItem == null)
+                    if (currentIntItem == null)
                     {
                         currentIntItem = currentPrefab.GetComponent<NVRInteractableItem>();
                     }
 
-                    if(currentIntItem.AttachedHand != null)
+                    if (currentIntItem != null)
                     {
-                        currentPrefab.transform.parent = null;
-                        currentIntItem = null;
+                        if (currentIntItem.AttachedHand != null)
+                        {
+                            currentPrefab.transform.parent = null;
+                            currentIntItem = null;
+                        }
                     }
                 }
             }
@@ -83,18 +99,32 @@ public class VRToolSpawner : MonoBehaviour
         Collider col = currentPrefab.GetComponentInChildren<Collider>();
         col.enabled = false;
 
-        while(curTime < totalTime)
+        Rigidbody rb = currentPrefab.GetComponent<Rigidbody>();
+
+        if(rb != null)
+        {
+            rb.isKinematic = true;
+        }
+
+        while (curTime < totalTime)
         {
             yield return new WaitForEndOfFrame();
 
             curTime += Time.deltaTime;
 
-            if(curTime > totalTime)
+            if (curTime > totalTime)
             {
                 curTime = totalTime;
             }
 
             currentPrefab.transform.localScale = Vector3.Lerp(Vector3.zero, goalSize, curTime / totalTime);
+        }
+
+        currentPrefab.transform.localPosition = Vector3.zero;
+
+        if (rb != null && !handSpawner)
+        {
+            rb.isKinematic = false;
         }
 
         col.enabled = true;
