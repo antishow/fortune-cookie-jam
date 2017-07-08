@@ -10,10 +10,10 @@ public static class FileUtility{
 	{
 		if(isResource){
 			string filePath = path.Replace(".json", "");
-			Debug.Log(filePath);
+			//Debug.Log(filePath);
 
 			TextAsset targetFile = Resources.Load<TextAsset>(filePath); 
-			Debug.Log(targetFile.text);
+			//Debug.Log(targetFile.text);
 			return targetFile.text;
 		} else {
 			return LoadJsonFromNonResource(Application.persistentDataPath + path);

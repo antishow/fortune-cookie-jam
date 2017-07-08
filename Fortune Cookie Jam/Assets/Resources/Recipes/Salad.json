@@ -1,0 +1,46 @@
+{
+    "name":"Salad",
+    "requiredIngredients":[
+        {
+            "name":"Lettuce",
+            "type":3,
+            "percentageChance":100.0,
+            "maxInRecipe":1,
+            "possibleCookedStatus":1,
+            "possibleChoppedStatus":2,
+            "possibleTenderizedStatus":1
+        }, {
+            "name":"Tomato",
+            "type":0,
+            "percentageChance":50.0,
+            "maxInRecipe":2,
+            "possibleCookedStatus":1,
+            "possibleChoppedStatus":2,
+            "possibleTenderizedStatus":1
+        }, {
+            "name":"Onion",
+            "type":1,
+            "percentageChance":50.0,
+            "maxInRecipe":2,
+            "possibleCookedStatus":1,
+            "possibleChoppedStatus":2,
+            "possibleTenderizedStatus":1
+        }, {
+            "name":"Mushroom",
+            "type":2,
+            "percentageChance":50.0,
+            "maxInRecipe":2,
+            "possibleCookedStatus":0,
+            "possibleChoppedStatus":2,
+            "possibleTenderizedStatus":1
+        }, {
+            "name":"Cheese",
+            "type":4,
+            "percentageChance":50.0,
+            "maxInRecipe":2,
+            "possibleCookedStatus":1,
+            "possibleChoppedStatus":0,
+            "possibleTenderizedStatus":1
+        }
+    ]
+}
