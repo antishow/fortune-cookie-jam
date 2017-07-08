@@ -42,7 +42,7 @@ public class RecipeBook : MonoBehaviour
     }
 
     public static DefaultRecipe GetRandomRecipe(){
-        return recipeList[Random.Range(0, recipeList.Count+1)];
+        return recipeList[Random.Range(0, recipeList.Count)];
     }
 
     public void AddRecipe(){

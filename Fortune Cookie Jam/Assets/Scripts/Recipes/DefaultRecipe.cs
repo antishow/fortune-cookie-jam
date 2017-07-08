@@ -7,6 +7,7 @@ using UnityEngine;
 public class DefaultRecipe{
     public string name;
     public CoreRecipe parentRecipe;
+    public float price;
     public List<OrderIngredient> requiredIngredients; //Bun, Patty, Lettuce, Tomato
 
     public string RecipieDescription(){
