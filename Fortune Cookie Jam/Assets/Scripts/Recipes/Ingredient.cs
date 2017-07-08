@@ -2,27 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 public enum IngredientType{
     TOMATO,
     ONION,
     MUSHROOM,
-    LETUICE,
+    LETTUCE,
     CHEESE,
     BURGER_BUN,
-    BURGER_PATTY
-}
-
-public enum IngredientStatus{
-    RAW,
-    COOKED
+    BURGER_PATTY,
+    CELERY,
+    CARROT,
+    NOODLES,
+    BROTH,
 }
 
 [System.Serializable]
 public struct IngredientData{
+    public string name; //Patty
     public IngredientType type;
-    public IngredientStatus status;
-    public float inclusionChance;
-    public int maxInRecipe;
+    public bool isCooked;
+    public bool isChopped;
+    public bool isTenderized;
 }
 
 public class Ingredient : MonoBehaviour{
@@ -39,5 +40,18 @@ public class Ingredient : MonoBehaviour{
     void Update(){
 
     }
+
+    public void Cook(){
+        data.isCooked = true;
+    }
+
+    public void Chop(){
+        data.isChopped = true;
+    }
+
+    public void Tenderize(){
+        data.isTenderized = true;
+    }
+
 
 }

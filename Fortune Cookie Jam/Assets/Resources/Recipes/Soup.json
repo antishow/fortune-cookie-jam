@@ -1,0 +1,62 @@
+{
+    "name":"Soup",
+    "requiredIngredients":[
+        {
+            "name":"Broth",
+            "type":10,
+            "percentageChance":100.0,
+            "maxInRecipe":1,
+            "possibleCookedStatus":2,
+            "possibleChoppedStatus":1,
+            "possibleTenderizedStatus":1
+        }, {
+            "name":"Tomato",
+            "type":0,
+            "percentageChance":50.0,
+            "maxInRecipe":2,
+            "possibleCookedStatus":2,
+            "possibleChoppedStatus":2,
+            "possibleTenderizedStatus":0
+        }, {
+            "name":"Onion",
+            "type":1,
+            "percentageChance":50.0,
+            "maxInRecipe":2,
+            "possibleCookedStatus":2,
+            "possibleChoppedStatus":2,
+            "possibleTenderizedStatus":1
+        }, {
+            "name":"Mushroom",
+            "type":2,
+            "percentageChance":50.0,
+            "maxInRecipe":2,
+            "possibleCookedStatus":2,
+            "possibleChoppedStatus":2,
+            "possibleTenderizedStatus":1
+        }, {
+            "name":"Celery",
+            "type":7,
+            "percentageChance":50.0,
+            "maxInRecipe":2,
+            "possibleCookedStatus":2,
+            "possibleChoppedStatus":2,
+            "possibleTenderizedStatus":1
+        }, {
+            "name":"Carrot",
+            "type":8,
+            "percentageChance":50.0,
+            "maxInRecipe":2,
+            "possibleCookedStatus":2,
+            "possibleChoppedStatus":2,
+            "possibleTenderizedStatus":1
+        }, {
+            "name":"Noodles",
+            "type":9,
+            "percentageChance":50.0,
+            "maxInRecipe":2,
+            "possibleCookedStatus":2,
+            "possibleChoppedStatus":2,
+            "possibleTenderizedStatus":1
+        }
+    ]
+}
