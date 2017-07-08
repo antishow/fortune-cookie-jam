@@ -9,7 +9,7 @@ public class OrderGenerator : MonoBehaviour
     public GameObject partyMemberPrefab;
     public int numberOfParties; //The total number of parties in the resaraunt
     public int numberOfPeople; //The total number of people in all parties
-    public static Dictionary<int, Party> partyOrders;
+    public List<Party> partyOrders;
     public void Awake(){
         if(OrderGenerator.instance != null){
             Destroy(this.gameObject);
@@ -20,7 +20,11 @@ public class OrderGenerator : MonoBehaviour
     }
 
     public void Update(){
-        
+        foreach(Party p in partyOrders){
+            if(p.partyFinished){
+                
+            }
+        }
     }
 
     public void CreateParty(){

@@ -10,7 +10,6 @@ public enum HungerLevel{
 
 //This goes on each party member so that if you interact with one of them, you can find the order from any party member, the partyID should be the same across all party members
 public class PartyMember : MonoBehaviour{
-    public int partyID; 
     public Party parentParty; 
     public int IDInParty; 
     public HungerLevel hunger;
@@ -109,6 +108,6 @@ public class PartyMember : MonoBehaviour{
     }
 
     public Party GetParty(){
-        return OrderGenerator.partyOrders[partyID];
+        return parentParty;
     }
 }
