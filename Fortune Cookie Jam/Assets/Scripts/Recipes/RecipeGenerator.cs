@@ -51,40 +51,7 @@ public class RecipeGenerator : MonoBehaviour
             foreach(IngredientName n in nameList.ingredientNameList){
                 nameList.ingredientNames.Add(n.type, n.name);
             }
-
-
-            //Test Stuff
-            //Test Stuff
-            //Test Stuff
-            //Test Stuff
-            //Test Stuff
-            //Test Stuff
-            //Test Stuff
-            //Test Stuff
-            //Test Stuff
-            //Test Stuff
-            //Test Stuff
-            //Test Stuff
-            //Test Stuff
-            // testRecipe = CreateRandomDefaultRecipe();
-            // testOrderList = new List<OrderRecipe>();
-            // testOrderList.Add(CreateOrderFromMenuItem(testRecipe));
-
-            // List<string> variance = GetVarrianceBetweenOrders(testRecipe, testOrderList[0]);
-            // foreach(string va in variance){
-            //     Debug.Log(va);
-            // }
-            //Test Stuff
-            //Test Stuff
-            //Test Stuff
-            //Test Stuff
-            //Test Stuff
-            //Test Stuff
-            //Test Stuff
-            //Test Stuff
-            //Test Stuff
-            //Test Stuff
-            //Test Stuff
+            RecipeBook.AddNewRecipie();
         }
     }
 
@@ -99,6 +66,7 @@ public class RecipeGenerator : MonoBehaviour
         string randomAdjective = nameList.adjectives[Random.Range(0,nameList.adjectives.Length)];
         defaultRecipe.name = randomAdjective + " " + randomName + " " + core.name;
         defaultRecipe.parentRecipe = core;
+        defaultRecipe.price = Random.Range(Preferences.minRecipeCost, Preferences.maxRecipeCost);
         //For each ingredient in the core recipe
         foreach(CoreRecipeIngredient cri in core.requiredIngredients){
             //Determine if the ingredient is being added
@@ -176,6 +144,8 @@ public class RecipeGenerator : MonoBehaviour
         OrderRecipe newOrder = new OrderRecipe();
         newOrder.requiredIngredients = new List<OrderIngredient>();
         CoreRecipe core = def.parentRecipe;
+        newOrder.price = def.price;
+        newOrder.name = def.name;
         //For each ingredient in the core recipe
         foreach(CoreRecipeIngredient cri in core.requiredIngredients){
             //Determine if the ingredient is being added
