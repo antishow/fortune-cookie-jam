@@ -1,11 +1,11 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
-using System;
 
 public enum IngredientType{
     TOMATO,
     ONION,
     MUSHROOM,
-    TOMATO,
     LETUICE,
     CHEESE,
     BURGER_BUN,
@@ -17,19 +17,23 @@ public enum IngredientStatus{
     COOKED
 }
 
+[System.Serializable]
 public struct IngredientData{
-    IngredientType type;
-    IngredientStatus status;
+    public IngredientType type;
+    public IngredientStatus status;
+    public float inclusionChance;
+    public int maxInRecipe;
 }
 
 public class Ingredient : MonoBehaviour{
+    public IngredientData data;
 
     void Awake(){
 
     }
 
     void Start(){
-
+        
     }
 
     void Update(){
