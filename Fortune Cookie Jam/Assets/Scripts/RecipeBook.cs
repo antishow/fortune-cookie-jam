@@ -11,6 +11,10 @@ public class RecipeBook : MonoBehaviour
     public int pageNumber = 0;
     public Text pageOne;
     public Text pageTwo;
+    public void Start(){
+        pageOne.text = "";
+        pageTwo.text = "";
+    }
 
     public void Update(){
         if(RecipeBook.pagesDirty){
@@ -35,6 +39,10 @@ public class RecipeBook : MonoBehaviour
         }
         recipeList.Add(RecipeGenerator.CreateRandomDefaultRecipe());
         pagesDirty = true;
+    }
+
+    public static DefaultRecipe GetRandomRecipe(){
+        return recipeList[Random.Range(0, recipeList.Count+1)];
     }
 
     public void AddRecipe(){

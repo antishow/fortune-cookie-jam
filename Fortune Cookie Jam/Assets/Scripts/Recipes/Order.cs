@@ -4,8 +4,9 @@ using UnityEngine;
 
 
 [System.Serializable]
-public struct Order{
+public class Order{
     public List<OrderRecipe> orders; //2 Burgers, 1 Salad
+    public List<Recipe> completedOrders;
 }
 
 [System.Serializable]

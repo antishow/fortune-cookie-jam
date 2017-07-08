@@ -26,8 +26,8 @@ public class RecipeGenerator : MonoBehaviour
     public static List<CoreRecipe> coreRecipes;
     public List<CoreRecipe> coreRecipesPublic;
     public static RecipeGenerator instance;
-    public DefaultRecipe testRecipe;
-    public List<OrderRecipe> testOrderList;
+    // public DefaultRecipe testRecipe;
+    // public List<OrderRecipe> testOrderList;
     public static RecipeNames nameList;
     public void Awake(){
         if(RecipeGenerator.instance != null){
@@ -66,22 +66,14 @@ public class RecipeGenerator : MonoBehaviour
             //Test Stuff
             //Test Stuff
             //Test Stuff
-            testRecipe = CreateRandomDefaultRecipe();
-            testOrderList = new List<OrderRecipe>();
-            testOrderList.Add(CreateOrderFromMenuItem(testRecipe.parentRecipe));
-            testOrderList.Add(CreateOrderFromMenuItem(testRecipe.parentRecipe));
-            testOrderList.Add(CreateOrderFromMenuItem(testRecipe.parentRecipe));
-            testOrderList.Add(CreateOrderFromMenuItem(testRecipe.parentRecipe));
-            testOrderList.Add(CreateOrderFromMenuItem(testRecipe.parentRecipe));
-            testOrderList.Add(CreateOrderFromMenuItem(testRecipe.parentRecipe));
-            testOrderList.Add(CreateOrderFromMenuItem(testRecipe.parentRecipe));
-            testOrderList.Add(CreateOrderFromMenuItem(testRecipe.parentRecipe));
-            testOrderList.Add(CreateOrderFromMenuItem(testRecipe.parentRecipe));
+            // testRecipe = CreateRandomDefaultRecipe();
+            // testOrderList = new List<OrderRecipe>();
+            // testOrderList.Add(CreateOrderFromMenuItem(testRecipe));
 
-            List<string> variance = GetVarrianceBetweenOrders(testRecipe, testOrderList[0]);
-            foreach(string va in variance){
-                Debug.Log(va);
-            }
+            // List<string> variance = GetVarrianceBetweenOrders(testRecipe, testOrderList[0]);
+            // foreach(string va in variance){
+            //     Debug.Log(va);
+            // }
             //Test Stuff
             //Test Stuff
             //Test Stuff
@@ -180,10 +172,10 @@ public class RecipeGenerator : MonoBehaviour
     }
 
     //Make a recipe for the book
-    public static OrderRecipe CreateOrderFromMenuItem(CoreRecipe core){
+    public static OrderRecipe CreateOrderFromMenuItem(DefaultRecipe def){
         OrderRecipe newOrder = new OrderRecipe();
         newOrder.requiredIngredients = new List<OrderIngredient>();
-
+        CoreRecipe core = def.parentRecipe;
         //For each ingredient in the core recipe
         foreach(CoreRecipeIngredient cri in core.requiredIngredients){
             //Determine if the ingredient is being added
