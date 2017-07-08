@@ -5,30 +5,53 @@ using UnityEngine.UI;
 
 public class RecipeBook : MonoBehaviour
 {
-    public List<DefaultRecipe> recipeList;
-    public int pageSet;
+    public static RecipeBook instance;
+    public static List<DefaultRecipe> recipeList;
+    public static bool pagesDirty;
+    public int pageNumber = 0;
     public Text pageOne;
     public Text pageTwo;
-    private bool _pagesDirty;
-
-    void Awake(){
-
-    }
-
-    public void AddNewRecipie(){
-        recipeList.Add(RecipeGenerator.CreateRandomDefaultRecipe());
-        _pagesDirty = true;
-    }
-
 
     public void Update(){
-        if(_pagesDirty){
-            if(pageSet < recipeList.Count && recipeList[pageSet] != null){
-                pageOne.text = recipeList[pageSet].RecipieDescription();
+        if(RecipeBook.pagesDirty){
+            if(pageNumber < recipeList.Count && recipeList[pageNumber] != null){
+                pageOne.text = recipeList[pageNumber].RecipieDescription();
+            } else {
+                pageOne.text = "";
             }
-            if(pageSet+1 < recipeList.Count && recipeList[pageSet+1] != null){
-                pageTwo.text = recipeList[pageSet+1].RecipieDescription();
+            
+            if(pageNumber+1 < recipeList.Count && recipeList[pageNumber+1] != null){
+                pageTwo.text = recipeList[pageNumber+1].RecipieDescription();
+            } else {
+                pageTwo.text = "";
             }
+            RecipeBook.pagesDirty = false;
+        }
+    }
+
+    public static void AddNewRecipie(){
+        if(recipeList ==  null){
+            recipeList = new List<DefaultRecipe>();
+        }
+        recipeList.Add(RecipeGenerator.CreateRandomDefaultRecipe());
+        pagesDirty = true;
+    }
+
+    public void AddRecipe(){
+        RecipeBook.AddNewRecipie();
+    }
+
+    public void NextPage(){
+        if(pageNumber + 2 < recipeList.Count){
+            pageNumber += 2;
+            RecipeBook.pagesDirty = true;
+        }
+    }
+
+    public void PreviousPage(){
+        if(pageNumber - 2 >= 0){
+            pageNumber -= 2;
+            RecipeBook.pagesDirty = true;
         }
     }
 }

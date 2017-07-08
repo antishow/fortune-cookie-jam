@@ -7,7 +7,7 @@ public enum IngredientType{
     TOMATO,
     ONION,
     MUSHROOM,
-    LETUICE,
+    LETTUCE,
     CHEESE,
     BURGER_BUN,
     BURGER_PATTY,

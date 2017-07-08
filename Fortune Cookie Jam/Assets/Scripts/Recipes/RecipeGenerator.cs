@@ -45,29 +45,54 @@ public class RecipeGenerator : MonoBehaviour
                 coreRecipesPublic.Add(temp);
             }
             
-        }
-        nameList = JsonUtility.FromJson<RecipeNames>(FileUtility.LoadJsonFromFile("Names.json", true));
-        // Debug.Log(nameList);
-        // Debug.Log(nameList.ingredientNameList);
-        nameList.ingredientNames = new Dictionary<IngredientType, string>();
-        foreach(IngredientName n in nameList.ingredientNameList){
-            nameList.ingredientNames.Add(n.type, n.name);
-        }   
-        testRecipe = CreateRandomDefaultRecipe();
-        testOrderList = new List<OrderRecipe>();
-        testOrderList.Add(CreateOrderFromMenuItem(testRecipe.parentRecipe));
-        testOrderList.Add(CreateOrderFromMenuItem(testRecipe.parentRecipe));
-        testOrderList.Add(CreateOrderFromMenuItem(testRecipe.parentRecipe));
-        testOrderList.Add(CreateOrderFromMenuItem(testRecipe.parentRecipe));
-        testOrderList.Add(CreateOrderFromMenuItem(testRecipe.parentRecipe));
-        testOrderList.Add(CreateOrderFromMenuItem(testRecipe.parentRecipe));
-        testOrderList.Add(CreateOrderFromMenuItem(testRecipe.parentRecipe));
-        testOrderList.Add(CreateOrderFromMenuItem(testRecipe.parentRecipe));
-        testOrderList.Add(CreateOrderFromMenuItem(testRecipe.parentRecipe));
+            //Load all the names
+            nameList = JsonUtility.FromJson<RecipeNames>(FileUtility.LoadJsonFromFile("Names.json", true));
+            nameList.ingredientNames = new Dictionary<IngredientType, string>();
+            foreach(IngredientName n in nameList.ingredientNameList){
+                nameList.ingredientNames.Add(n.type, n.name);
+            }
 
-        List<string> variance = GetVarrianceBetweenOrders(testRecipe, testOrderList[0]);
-        foreach(string va in variance){
-            Debug.Log(va);
+
+            //Test Stuff
+            //Test Stuff
+            //Test Stuff
+            //Test Stuff
+            //Test Stuff
+            //Test Stuff
+            //Test Stuff
+            //Test Stuff
+            //Test Stuff
+            //Test Stuff
+            //Test Stuff
+            //Test Stuff
+            //Test Stuff
+            testRecipe = CreateRandomDefaultRecipe();
+            testOrderList = new List<OrderRecipe>();
+            testOrderList.Add(CreateOrderFromMenuItem(testRecipe.parentRecipe));
+            testOrderList.Add(CreateOrderFromMenuItem(testRecipe.parentRecipe));
+            testOrderList.Add(CreateOrderFromMenuItem(testRecipe.parentRecipe));
+            testOrderList.Add(CreateOrderFromMenuItem(testRecipe.parentRecipe));
+            testOrderList.Add(CreateOrderFromMenuItem(testRecipe.parentRecipe));
+            testOrderList.Add(CreateOrderFromMenuItem(testRecipe.parentRecipe));
+            testOrderList.Add(CreateOrderFromMenuItem(testRecipe.parentRecipe));
+            testOrderList.Add(CreateOrderFromMenuItem(testRecipe.parentRecipe));
+            testOrderList.Add(CreateOrderFromMenuItem(testRecipe.parentRecipe));
+
+            List<string> variance = GetVarrianceBetweenOrders(testRecipe, testOrderList[0]);
+            foreach(string va in variance){
+                Debug.Log(va);
+            }
+            //Test Stuff
+            //Test Stuff
+            //Test Stuff
+            //Test Stuff
+            //Test Stuff
+            //Test Stuff
+            //Test Stuff
+            //Test Stuff
+            //Test Stuff
+            //Test Stuff
+            //Test Stuff
         }
     }
 

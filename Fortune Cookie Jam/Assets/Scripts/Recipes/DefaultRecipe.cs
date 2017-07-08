@@ -7,10 +7,10 @@ using UnityEngine;
 public class DefaultRecipe{
     public string name;
     public CoreRecipe parentRecipe;
-    public List<OrderIngredient> requiredIngredients; //Bun, Patty, Letuice, Tomato
+    public List<OrderIngredient> requiredIngredients; //Bun, Patty, Lettuce, Tomato
 
     public string RecipieDescription(){
-        string fullRecipe = name + "\n";
+        string fullRecipe = "<b>" + name + "</b>\n";
         foreach (IngredientType type in IngredientType.GetValues(typeof(IngredientType)))
         {
             bool hasIngredient = false;

@@ -31,7 +31,7 @@ public enum CoreIngredientTenderizedStatus{
 [System.Serializable]
 public struct CoreRecipe{
     public string name; //Burger 
-    public List<CoreRecipeIngredient> requiredIngredients; //Bun, Patty, Letuice, Tomato
+    public List<CoreRecipeIngredient> requiredIngredients; //Bun, Patty, Lettuce, Tomato
 }
 
 [System.Serializable]

@@ -11,7 +11,7 @@ public struct Order{
 [System.Serializable]
 public struct OrderRecipe{
     public string name; //Burger 
-    public List<OrderIngredient> requiredIngredients; //Bun, Patty, Letuice, Tomato
+    public List<OrderIngredient> requiredIngredients; //Bun, Patty, Lettuce, Tomato
     public List<string> variance; 
 }
 

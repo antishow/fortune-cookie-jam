@@ -42,7 +42,7 @@
             "possibleChoppedStatus":2,
             "possibleTenderizedStatus":1
         }, {
-            "name":"Letuice",
+            "name":"Lettuce",
             "type":3,
             "percentageChance":50.0,
             "maxInRecipe":2,

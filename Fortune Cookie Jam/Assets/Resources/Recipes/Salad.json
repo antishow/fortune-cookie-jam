@@ -2,7 +2,7 @@
     "name":"Salad",
     "requiredIngredients":[
         {
-            "name":"Letuice",
+            "name":"Lettuce",
             "type":3,
             "percentageChance":100.0,
             "maxInRecipe":1,
