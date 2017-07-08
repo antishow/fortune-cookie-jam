@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public struct AllCoreRecipies{
-    public List<CoreRecipe> coreRecipes;
+    public List<string> coreRecipes;
 }
 
 public class RecipeGenerator : MonoBehaviour
@@ -18,7 +18,10 @@ public class RecipeGenerator : MonoBehaviour
             RecipeGenerator.instance = this;
             //Load core recipes
             AllCoreRecipies loadedRecipes = JsonUtility.FromJson<AllCoreRecipies>(FileUtility.LoadJsonFromFile("CoreRecipes/AllRecipes.json", true));
-            coreRecipes = loadedRecipes.coreRecipes;
+            foreach(string s in loadedRecipes.coreRecipes){
+                CoreRecipe temp = JsonUtility.FromJson<CoreRecipe>(FileUtility.LoadJsonFromFile(s, true));
+                coreRecipes.Add(temp);
+            }
         }
     }
 

@@ -1,41 +1,6 @@
 {
     "coreRecipes":[
-        {
-            "name":"Burger",
-            "ingredients":[
-                {
-                    "name":"Burger Bun",
-                    "type":5,
-                    "status":0,
-                    "inclusionChance":100.0,
-                    "maxInRecipe":1
-                },{
-                    "name":"Burger Patty",
-                    "type":6,
-                    "status":2,
-                    "inclusionChance":100.0,
-                    "maxInRecipe":2
-                },{
-                    "name":"Tomato",
-                    "type":0,
-                    "status":1,
-                    "inclusionChance":50.0,
-                    "maxInRecipe":2
-                },{
-                    "name":"Onion",
-                    "type":1,
-                    "status":1,
-                    "inclusionChance":50.0,
-                    "maxInRecipe":2
-                },{
-                    "name":"Letuice",
-                    "type":3,
-                    "status":1,
-                    "inclusionChance":70.0,
-                    "maxInRecipe":2
-                }
-            ]
-        }
+        "Recipes/Burger.json"
     ]
 
 }
