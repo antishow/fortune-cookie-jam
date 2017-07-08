@@ -1,0 +1,62 @@
+{
+    "name":"Burger",
+    "requiredIngredients":[
+        {
+            "name":"Burger Bun",
+            "type":5,
+            "percentageChance":95.0,
+            "maxInRecipe":1,
+            "possibleCookedStatus":0,
+            "possibleChoppedStatus":0,
+            "possibleTenderizedStatus":0
+        }, {
+            "name":"Burger Patty",
+            "type":6,
+            "percentageChance":100.0,
+            "maxInRecipe":2,
+            "possibleCookedStatus":0,
+            "possibleChoppedStatus":0,
+            "possibleTenderizedStatus":0
+        }, {
+            "name":"Tomato",
+            "type":0,
+            "percentageChance":60.0,
+            "maxInRecipe":2,
+            "possibleCookedStatus":1,
+            "possibleChoppedStatus":2,
+            "possibleTenderizedStatus":1
+        }, {
+            "name":"Onion",
+            "type":1,
+            "percentageChance":60.0,
+            "maxInRecipe":2,
+            "possibleCookedStatus":1,
+            "possibleChoppedStatus":2,
+            "possibleTenderizedStatus":1
+        }, {
+            "name":"Mushroom",
+            "type":2,
+            "percentageChance":30.0,
+            "maxInRecipe":2,
+            "possibleCookedStatus":0,
+            "possibleChoppedStatus":2,
+            "possibleTenderizedStatus":1
+        }, {
+            "name":"Letuice",
+            "type":3,
+            "percentageChance":50.0,
+            "maxInRecipe":2,
+            "possibleCookedStatus":1,
+            "possibleChoppedStatus":2,
+            "possibleTenderizedStatus":1
+        }, {
+            "name":"Cheese",
+            "type":4,
+            "percentageChance":50.0,
+            "maxInRecipe":2,
+            "possibleCookedStatus":1,
+            "possibleChoppedStatus":0,
+            "possibleTenderizedStatus":1
+        }
+    ]
+}

@@ -2,22 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public struct Order{
-    public List<OrderRecipe> orders; //2 Burgers, 1 Salad
-}
-
-public struct OrderRecipe{
-    public string name; //Burger 
-    public List<OrderIngredient> requiredIngredients; //Bun, Patty, Letuice, Tomato
-}
-
-public struct OrderIngredient{
-    public string name; //Patty
-    public IngredientType type;
-    public bool needsCooking;
-    public bool needsPrepping;
-}
-
+[System.Serializable]
 public enum IngredientType{
     TOMATO,
     ONION,
@@ -25,40 +10,20 @@ public enum IngredientType{
     LETUICE,
     CHEESE,
     BURGER_BUN,
-    BURGER_PATTY
+    BURGER_PATTY,
+    CELERY,
+    CARROT,
+    NOODLES,
+    BROTH,
 }
-
-public enum IngredientCookedRequirement{
-    UNCOOKED,
-    COOKED
-}
-public enum IngredientPreppedRequirement{
-    UNPREPPED,
-    PREPPED,
-    EITHER
-    
-}
-
-
-[System.Serializable]
-public struct CoreIngredientData{
-    public string name;
-    public IngredientType type;
-    public IngredientPreppedRequirement preppedRequirement;
-    public bool prepped;
-    public IngredientCookedRequirement cookedRequirement;
-    public bool cooked;
-    public float inclusionChance;
-    public int maxInRecipe;
-}
-
 
 [System.Serializable]
 public struct IngredientData{
-    public string name;
+    public string name; //Patty
     public IngredientType type;
-    public bool prepped;
-    public bool cooked;
+    public bool isCooked;
+    public bool isChopped;
+    public bool isTenderized;
 }
 
 public class Ingredient : MonoBehaviour{
@@ -75,5 +40,18 @@ public class Ingredient : MonoBehaviour{
     void Update(){
 
     }
+
+    public void Cook(){
+        data.isCooked = true;
+    }
+
+    public void Chop(){
+        data.isChopped = true;
+    }
+
+    public void Tenderize(){
+        data.isTenderized = true;
+    }
+
 
 }

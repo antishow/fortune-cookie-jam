@@ -1,6 +1,8 @@
 {
     "coreRecipes":[
-        "Recipes/Burger.json"
+        "Recipes/Burger.json",
+        "Recipes/Salad.json",
+        "Recipes/Soup.json"
     ]
 
 }
