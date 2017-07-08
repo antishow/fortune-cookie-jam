@@ -144,6 +144,7 @@ public class RecipeGenerator : MonoBehaviour
         OrderRecipe newOrder = new OrderRecipe();
         newOrder.requiredIngredients = new List<OrderIngredient>();
         CoreRecipe core = def.parentRecipe;
+        newOrder.parentDefaultRecipe = def;
         newOrder.price = def.price;
         newOrder.name = def.name;
         //For each ingredient in the core recipe
@@ -218,7 +219,7 @@ public class RecipeGenerator : MonoBehaviour
         return newOrder;
     }
 
-    public List<string> GetVarrianceBetweenOrders(DefaultRecipe def, OrderRecipe ord){
+    public static List<string> GetVarrianceBetweenOrders(DefaultRecipe def, OrderRecipe ord){
         List<string> orderVariance = new List<string>();
         foreach (IngredientType type in IngredientType.GetValues(typeof(IngredientType)))
         {
@@ -254,7 +255,7 @@ public class RecipeGenerator : MonoBehaviour
     }
 
     //Returns the number of mistakes
-    public int CompareOrderToRecipe(OrderRecipe ord, Recipe recipe){
+    public static int CompareOrderToRecipe(OrderRecipe ord, Recipe recipe){
         int mistakes = 0;
         //We check every possible ingredient
         foreach (IngredientType type in IngredientType.GetValues(typeof(IngredientType)))
@@ -289,6 +290,6 @@ public class RecipeGenerator : MonoBehaviour
             }
         }
 
-        return 0;
+        return mistakes;
     }
 }

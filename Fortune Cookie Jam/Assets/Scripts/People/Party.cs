@@ -8,8 +8,6 @@ public class Party : MonoBehaviour{
     public int tableNum; 
     public List<PartyMember> partyMembers;
     public Order partyOrder;
-
-	public Dictionary<PartyMemeberStatus, HUDTimer> timers;
     public bool partyFinished;
     public bool partyDeparted;
     public float partyPaidAmount;
@@ -58,7 +56,25 @@ public class Party : MonoBehaviour{
             foreach(OrderRecipe or in partyOrder.orders){
                 //partyPaidAmount += or.price;
                 //TODO: Multiply by time wait scaler.
-                partyPaidAmount += Preferences.flatPrice;
+                // foreach(Recipe rec in partyOrder.completedOrders){
+                //      += RecipeGenerator.CompareOrderToRecipe(or, rec);
+                // }
+                Recipe leastMistakes = new Recipe();
+                int currentMistakes = 1000;
+                for (int i = 0; i < partyOrder.completedOrders.Count; i++)
+                {
+                    Recipe temp = partyOrder.completedOrders[i];
+                    int orderMistakes = RecipeGenerator.CompareOrderToRecipe(or,temp);
+                    if(orderMistakes < currentMistakes){
+                        currentMistakes = orderMistakes;
+                        leastMistakes = temp;
+                    }
+                }
+                HUDPartyTimers.mistakes += currentMistakes;
+                partyOrder.checkedOrders.Add(leastMistakes);
+                partyOrder.completedOrders.Remove(leastMistakes);
+                // partyPaidAmount += Preferences.flatPrice;
+                // HUDPartyTimers.scoreValue += Preferences.flatPrice;
             }
             foreach(PartyMember pm in partyMembers){
                 pm.leaving = true;
