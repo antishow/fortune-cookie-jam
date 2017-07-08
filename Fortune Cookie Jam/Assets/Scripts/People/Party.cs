@@ -9,6 +9,7 @@ public class Party : MonoBehaviour{
     public Order partyOrder;
 
     public bool partyFinished;
+    public bool partyDeparted;
     public float partyPaidAmount;
 
     public void SeatParty(){
