@@ -11,6 +11,7 @@ public class VRToolSpawner : MonoBehaviour
     private GameObject spawningPrefab;
 
     private GameObject currentPrefab;
+    private NVRInteractableItem currentIntItem;
 
     private bool growing = false;
     private Vector3 goalSize;
@@ -37,7 +38,6 @@ public class VRToolSpawner : MonoBehaviour
             if (currentPrefab == null || (currentPrefab.transform.position - transform.position).sqrMagnitude > .75f)
             {
                 currentPrefab = Instantiate(spawningPrefab, transform.position, transform.rotation);
-
                 currentPrefab.transform.parent = transform;
 
                 goalSize = currentPrefab.transform.localScale;
@@ -55,6 +55,19 @@ public class VRToolSpawner : MonoBehaviour
                     currentPrefab.AddComponent<NVRInteractableItem>();
                     currentPrefab.transform.parent = null;
                     currentPrefab = null;
+                }
+                else if(!handSpawner)
+                {
+                    if(currentIntItem == null)
+                    {
+                        currentIntItem = currentPrefab.GetComponent<NVRInteractableItem>();
+                    }
+
+                    if(currentIntItem.AttachedHand != null)
+                    {
+                        currentPrefab.transform.parent = null;
+                        currentIntItem = null;
+                    }
                 }
             }
         }

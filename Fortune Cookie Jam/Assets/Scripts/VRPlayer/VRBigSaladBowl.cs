@@ -69,9 +69,9 @@ public class VRBigSaladBowl : MonoBehaviour
             if (ingredients[i].AttachedHand != null)
             {
                 ingredients[i].transform.parent = null;
-            }
 
-            ingredients.RemoveAt(i);
+                ingredients.RemoveAt(i);
+            }
         }
 
         if (myNVRII.AttachedHand != null)
@@ -94,7 +94,7 @@ public class VRBigSaladBowl : MonoBehaviour
 
                 for (int j = 0; j < ingredients.Count; j++)
                 {
-                    IngredientData i = ingredients[j].GetComponent<IngredientData>();
+                    IngredientData i = ingredients[j].GetComponent<Ingredient>().data;
                     ing.Add(i);
 
                     if (string.IsNullOrEmpty(recip))
@@ -110,6 +110,8 @@ public class VRBigSaladBowl : MonoBehaviour
                 myRecipe.ingredients = ing;
 
                 text.text = recip;
+
+                GetComponent<NVRInteractableItem>().UpdateColliders();
             }
         }
 
