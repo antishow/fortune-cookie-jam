@@ -17,6 +17,8 @@ public class SoupPot : CookingStation
     public GameObject Broth;
     private Material brothMaterial;
 
+    private Material bubbleMaterial;
+
     private float _temperature;
     public float Temperature
     {
@@ -47,6 +49,7 @@ public class SoupPot : CookingStation
 
         Reset();
         brothMaterial = Broth.GetComponent<Renderer>().material;
+        bubbleMaterial = Broth.GetComponentInChildren<ParticleSystem>().GetComponent<Renderer>().material;
     }
 
     void Update()
@@ -64,6 +67,7 @@ public class SoupPot : CookingStation
         }
 
         brothMaterial.color = GetBrothColor();
+        bubbleMaterial.color = brothMaterial.color;
     }
 
     void OnTriggerEnter(Collider other)

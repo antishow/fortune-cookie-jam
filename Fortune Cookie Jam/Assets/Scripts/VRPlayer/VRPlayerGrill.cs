@@ -36,7 +36,7 @@ public class VRPlayerGrill : MonoBehaviour
                 }
             }
 
-            if(count == 0)
+            if(count == 2)
             {
                 i.data.isCooked = true;
             }
