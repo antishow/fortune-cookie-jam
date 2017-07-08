@@ -24,19 +24,33 @@ public class VRBigSaladBowl : MonoBehaviour
     [SerializeField]
     private GameObject unfinishedSalad;
 
+    private Recipe myRecipe = new Recipe();
+
     public void OnTriggerEnter(Collider other)
     {
-        NVRInteractableItem nvrii = other.GetComponent<NVRInteractableItem>();
+        Ingredient i = other.GetComponent<Ingredient>();
 
-        if(nvrii == null)
+        if (i == null)
         {
-            nvrii = other.GetComponentInParent<NVRInteractableItem>();
+            i = other.GetComponentInParent<Ingredient>();
         }
 
-        if (nvrii == null)
+        if (i == null)
             return;
 
-        if(nvrii.AttachedHand)
+        if (i.data.type == IngredientType.BURGER_PATTY)
+        {
+            return;
+        }
+
+        if (i.data.type != IngredientType.BURGER_BUN && !i.data.isChopped)
+        {
+            return;
+        }
+
+        NVRInteractableItem nvrii = i.GetComponent<NVRInteractableItem>();
+
+        if (nvrii.AttachedHand)
         {
             nvrii.AttachedHand.EndInteraction(nvrii);
         }
@@ -50,9 +64,9 @@ public class VRBigSaladBowl : MonoBehaviour
 
     private void Update()
     {
-        for(int i = ingredients.Count - 1; i >= 0; i--)
+        for (int i = ingredients.Count - 1; i >= 0; i--)
         {
-            if(ingredients[i].AttachedHand != null)
+            if (ingredients[i].AttachedHand != null)
             {
                 ingredients[i].transform.parent = null;
             }
@@ -60,20 +74,42 @@ public class VRBigSaladBowl : MonoBehaviour
             ingredients.RemoveAt(i);
         }
 
-        if(myNVRII.AttachedHand != null)
+        if (myNVRII.AttachedHand != null)
         {
             float dist = Vector3.Distance(transform.position, lastPos) / (Time.deltaTime * 100);
 
             shakeAmount += dist;
 
-            if(shakeAmount > 10)
+            if (shakeAmount > 10)
             {
                 NVRHand hand = myNVRII.AttachedHand;
                 hand.EndInteraction(myNVRII);
 
                 finishedSalad.SetActive(true);
                 unfinishedSalad.SetActive(false);
-                text.text = "Ingredients used here";
+
+                string recip = "";
+
+                List<IngredientData> ing = new List<IngredientData>();
+
+                for (int j = 0; j < ingredients.Count; j++)
+                {
+                    IngredientData i = ingredients[j].GetComponent<IngredientData>();
+                    ing.Add(i);
+
+                    if (string.IsNullOrEmpty(recip))
+                    {
+                        recip = i.name;
+                    }
+                    else
+                    {
+                        recip += "\n" + i.name;
+                    }
+                }
+
+                myRecipe.ingredients = ing;
+
+                text.text = recip;
             }
         }
 

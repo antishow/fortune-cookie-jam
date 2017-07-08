@@ -623,6 +623,12 @@ namespace NewtonVR
 
         protected virtual void OnTriggerEnter(Collider collider)
         {
+            if(!vrPlayerHands.OnGrabber)
+            {
+                CurrentlyHoveringOver.Clear();
+                return;
+            }
+
             NVRInteractable interactable = NVRInteractables.GetInteractable(collider);
             if (interactable == null || interactable.enabled == false)
                 return;

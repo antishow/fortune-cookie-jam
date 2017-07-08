@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using NewtonVR;
 
 public class VRPlayerSpatula : MonoBehaviour
 {
@@ -16,10 +17,20 @@ public class VRPlayerSpatula : MonoBehaviour
         if (i == null)
             return;
 
-        if (i.transform.GetChild(0).GetComponent<NewtonVR.NVRInteractableItem>().AttachedHand != null || i.data.type != IngredientType.BURGER_PATTY)
+        NVRInteractableItem nvrii = i.transform.GetChild(0).GetComponent<NewtonVR.NVRInteractableItem>();
+
+        if (nvrii == null)
             return;
 
-        i.data.isChopped = true;
+        if (nvrii.AttachedHand != null || i.data.type != IngredientType.BURGER_PATTY)
+            return;
+
+        if(i.data.isTenderized || i.data.isCooked)
+        {
+            return;
+        }
+
+        i.data.isTenderized = true;
         i.transform.GetChild(0).gameObject.SetActive(false);
         i.transform.GetChild(1).gameObject.SetActive(true);
     }
