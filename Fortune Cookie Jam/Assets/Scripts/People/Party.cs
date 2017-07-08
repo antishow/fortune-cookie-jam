@@ -61,5 +61,4 @@ public class Party : MonoBehaviour{
             //Tell party members to leave
         }
     }
-
 }
