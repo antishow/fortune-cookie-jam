@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class VRPlayerKnife : MonoBehaviour
+public class VRPlayerTenderizer : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Knife Hit: " + other.name);
+        Debug.Log("Tenderizer Hit: " + other.name);
     }
 }
