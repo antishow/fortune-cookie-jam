@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Preferences{
     public static float starvingThreshold = 0.0f;
-    public static float hungryThreshold = 20.0f;
-    public static float fullThreshold = 80.0f;
+    public static float hungryThreshold = 10.0f;
+    public static float fullThreshold = 50.0f;
     public static float partyMemberMinEatTime = 30.0f;
     public static float partyMemberMaxEatTime = 60.0f;
     public static float partyMemberMinDecideTime = 20.0f;

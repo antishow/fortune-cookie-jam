@@ -20,6 +20,5 @@ public class RadialTimer : MonoBehaviour {
     {
         //Reduce fill amount over 30 seconds
         cooldown.fillAmount += Time.deltaTime * 0.1f;
-		Debug.Log(cooldown.fillAmount);
     }
 }

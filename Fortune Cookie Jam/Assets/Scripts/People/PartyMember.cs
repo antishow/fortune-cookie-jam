@@ -8,24 +8,35 @@ public enum HungerLevel{
     STARVING
 }
 
+public enum PartyMemeberStatus{
+    WAITING_SEATED,
+    SEATED,
+    DECIDED,
+    ORDERED,
+    EATING,
+    FINISHED,
+    LEAVING
+}
+
 //This goes on each party member so that if you interact with one of them, you can find the order from any party member, the partyID should be the same across all party members
 public class PartyMember : MonoBehaviour{
     public Party parentParty; 
     public int IDInParty; 
     public HungerLevel hunger;
 
+    public PartyMemeberStatus status;
     //Meal status'
-    public bool seated;
+    // public bool eating;
+    // public bool finished;
+    // public bool seated;
+    // public bool decided; //has this person decided yet?
+    // public bool ordered;
+
     public float seatedWaitTime;
     public float decideTime;
-    public bool decided; //has this person decided yet?
     public float orderWaitTime;
-    public bool ordered;
-
     public float foodWaitTime;
     public float eatingTime;
-    public bool eating;
-    public bool finished;
     public bool leaving;
     // public bool checkDelivered;
     // public float checkDeliveredWaitTime;
@@ -49,37 +60,45 @@ public class PartyMember : MonoBehaviour{
     }
 
     public void Update(){
-        //They only start deciding once seated
-        if(!seated){
-            //Wait to be seated
-            seatedWaitTime += Time.deltaTime;
-        } else if(!decided){
-            //Deciding
-            if(decideTime < 0){
-                decided = true;
-            } else {
-                decideTime -= Time.deltaTime;
-            }
-        } else if(!ordered){
-            //Wait to have order taken
-            orderWaitTime += Time.deltaTime;
-        } else if(!eating){
-            //Wait to have food delivered
-            foodWaitTime += Time.deltaTime;
-        } else if(!finished){
-            //Eating
-            if(eatingTime < 0){
-                finished = true;
-            } else {
-                eatingTime -= Time.deltaTime;
-            }
-        } else {
-            //Make them dissapear or something.
-            if(IDInParty == 0){
-                //Only do this on the party leader
-                parentParty.CheckFinished();
-            }
-            //Possibly do some scoring here or something
+        switch (status)
+        {
+            case PartyMemeberStatus.WAITING_SEATED:
+                //Wait to be seated
+                seatedWaitTime += Time.deltaTime;
+            break;
+            case PartyMemeberStatus.SEATED:
+                //Deciding
+                if(decideTime < 0){
+                    status = PartyMemeberStatus.DECIDED;
+                } else {
+                    decideTime -= Time.deltaTime;
+                }
+            break;
+            case PartyMemeberStatus.DECIDED:
+                //Wait to have order taken
+                orderWaitTime += Time.deltaTime;
+            break;
+            case PartyMemeberStatus.ORDERED:
+                //Wait to have food delivered
+                foodWaitTime += Time.deltaTime;
+            break;
+            case PartyMemeberStatus.EATING:
+                //Eating
+                if(eatingTime < 0){
+                    status = PartyMemeberStatus.FINISHED;
+                } else {
+                    eatingTime -= Time.deltaTime;
+                }
+            break;
+            case PartyMemeberStatus.FINISHED:
+                //Make them dissapear or something.
+                if(IDInParty == 0){
+                    //Only do this on the party leader
+                    parentParty.CheckFinished();
+                }
+            break;
+            case PartyMemeberStatus.LEAVING:
+            break;
         }
     }
 
