@@ -1,0 +1,8 @@
+The back end data is broken down into 3 parts,
+
+CoreRecipe - this is a list of all possible ingredients for a specific type of recipe 
+DefaultRecipe - This is the recipe in it's specific default configuration. These are shown in the menu book they reference their parent as the parent has all the possible options.
+OrderRecipe - A randomly generated list of ingredients and their specific requests
+Recipe - The actual ingredients put together by the player in VR.
+
+Ingredients can have multiple status' flagged but the OrderRecipe will have specific ones. that deviate from the main recipe, these can be seen by comparing the CoreRecipe to the OrderRecipe

@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 984c0a2d1c7a56748b1a8f0ca4ef5bb1
+timeCreated: 1499512704
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Hanken
+  fontNames:
+  - Hanken
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 1cc2e979349434e45a886334a575b250, type: 3}
+  - {fileID: 12800000, guid: d8c966e908de0bd48bbe65ecd8ee7561, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
