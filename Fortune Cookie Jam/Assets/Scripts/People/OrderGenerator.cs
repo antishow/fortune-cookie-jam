@@ -22,6 +22,12 @@ public class OrderGenerator : MonoBehaviour
     }
 
     public void CreateParty(){
+        //Create a party
 
+        //Create the party members
+        
+        //Link them
+
+        //Let the party memebers do whatever
     }
 }
