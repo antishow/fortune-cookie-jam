@@ -819,7 +819,7 @@ namespace NewtonVR
                     GhostRenderers = this.GetComponentsInChildren<Renderer>();
                     for (int rendererIndex = 0; rendererIndex < GhostRenderers.Length; rendererIndex++)
                     {
-                        NVRHelpers.SetTransparent(GhostRenderers[rendererIndex].material, transparentcolor);
+                        //sNVRHelpers.SetTransparent(GhostRenderers[rendererIndex].material, transparentcolor);
                     }
                 }
 
