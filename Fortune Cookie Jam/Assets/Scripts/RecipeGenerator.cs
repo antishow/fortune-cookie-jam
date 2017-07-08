@@ -6,38 +6,40 @@ public struct AllCoreRecipies{
     public List<CoreRecipe> coreRecipes;
 }
 
-
 public class RecipeGenerator : MonoBehaviour
 {
-    public static List<CoreRecipe> coreRecipes;
+    public List<CoreRecipe> coreRecipes;
     public static RecipeGenerator instance;
 
-    public RecipeGenerator(){
+    public void Awake(){
         if(RecipeGenerator.instance != null){
             Destroy(this.gameObject);
         } else {
             RecipeGenerator.instance = this;
             //Load core recipes
+            AllCoreRecipies loadedRecipes = JsonUtility.FromJson<AllCoreRecipies>(FileUtility.LoadJsonFromFile("CoreRecipes/AllRecipes.json", true));
+            coreRecipes = loadedRecipes.coreRecipes;
         }
     }
 
-    public static Recipe CreateRandomRecipe(){
-        //Choose the random ingredients
-        Recipe response = new Recipe();
+    // public static Recipe CreateRandomRecipe(){
+    //     //Choose the random ingredients
+    //     Recipe response = new Recipe();
 
-        //Choose a core recipe
-        int recipeChosen = Random.Range(0, coreRecipes.Count);
-        CoreRecipe core = coreRecipes[recipeChosen];
-        foreach(IngredientData type in core.ingredients){
-            float isAddedPercent = Random.Range(0.0f, 100.0f);
-            int maxInRecipe = Random.Range(1, type.maxInRecipe);
-            if(type.inclusionChance > isAddedPercent){
-                for(int i = 0; i <= maxInRecipe; i++){
-                    response.ingredients.Add(type);
-                }
-            }
-        }
+    //     //Choose a core recipe
+    //     int recipeChosen = Random.Range(0, coreRecipes.Count);
+    //     CoreRecipe core = coreRecipes[recipeChosen];
+    //     foreach(IngredientData type in core.ingredients){
+    //         float isAddedPercent = Random.Range(0.0f, 100.0f);
+    //         if(type.inclusionChance > isAddedPercent){
+                
+    //             int maxInRecipe = Random.Range(1, type.maxInRecipe);
+    //             for(int i = 0; i <= maxInRecipe; i++){
+    //                 response.ingredients.Add(type);
+    //             }
+    //         }
+    //     }
 
-        return response;
-    }
+    //     return response;
+    // }
 }

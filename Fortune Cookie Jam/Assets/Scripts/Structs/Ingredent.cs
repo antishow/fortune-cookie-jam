@@ -14,13 +14,16 @@ public enum IngredientType{
 
 public enum IngredientStatus{
     RAW,
+    CHOPPED,
     COOKED
 }
 
 [System.Serializable]
 public struct IngredientData{
+    public string name;
     public IngredientType type;
     public IngredientStatus status;
+    public bool cooked;
     public float inclusionChance;
     public int maxInRecipe;
 }
