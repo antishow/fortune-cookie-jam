@@ -7,11 +7,13 @@ using UnityEngine;
 public class Order{
     public List<OrderRecipe> orders; //2 Burgers, 1 Salad
     public List<Recipe> completedOrders;
+    public List<Recipe> checkedOrders;
 }
 
 [System.Serializable]
 public struct OrderRecipe{
     public string name; //Burger 
+    public DefaultRecipe parentDefaultRecipe;
     public List<OrderIngredient> requiredIngredients; //Bun, Patty, Lettuce, Tomato
     public float price;
     public List<string> variance; 

@@ -16,7 +16,7 @@ public class OrderGenerator : MonoBehaviour
     public GameObject partyMemberPrefab;
     public int numberOfParties; //The total number of parties in the resaraunt
     public int numberOfPeople; //The total number of people in all parties
-    public List<Party> partyOrders;
+    public List<Party> parties;
     public void Awake(){
         if(OrderGenerator.instance != null){
             Destroy(this.gameObject);
@@ -59,5 +59,11 @@ public class OrderGenerator : MonoBehaviour
             //Link them
             party.GetComponent<Party>().partyMembers.Add(player.GetComponent<PartyMember>());
         }
+        party.GetComponent<Party>().GetOrder();
+        parties.Add(party.GetComponent<Party>());
+    }
+
+    public List<Party> GetParties(){
+        return parties;
     }
 }

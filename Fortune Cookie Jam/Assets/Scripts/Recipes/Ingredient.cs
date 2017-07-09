@@ -24,6 +24,7 @@ public struct IngredientData{
     public bool isCooked;
     public bool isChopped;
     public bool isTenderized;
+    public bool isRuined;
 }
 
 public class Ingredient : MonoBehaviour{
@@ -38,7 +39,10 @@ public class Ingredient : MonoBehaviour{
     }
 
     void Update(){
-
+        //Maybe
+        if(data.isRuined){
+            //Make if fizzle out of existance or something
+        }
     }
 
     public void Cook(){
@@ -51,6 +55,10 @@ public class Ingredient : MonoBehaviour{
 
     public void Tenderize(){
         data.isTenderized = true;
+    }
+
+    public void Ruin(){
+        data.isRuined = true;
     }
 
 
